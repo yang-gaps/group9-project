@@ -1,0 +1,12 @@
+body {
+  font-family: "Poppins", sans-serif !important;
+}
+
+h1, h2 {
+  letter-spacing: 0.5px;
+}
+
+.card h5 {
+  font-weight: 600;
+  text-align: center;
+}
