@@ -2,14 +2,14 @@ import { MenuItem } from "../types/MenuItem";
 
 interface MenuListProps {
   items: MenuItem[];
-  onUpdate: (item: MenuItem) => void;   
-  onDelete: (id: string) => void;       
+  onUpdate: (item: MenuItem) => void;
+  onDelete: (id: string) => void;
 }
 
 function MenuList({ items, onUpdate, onDelete }: MenuListProps) {
   return (
     <div className="card p-3 shadow-sm">
-      <h5 className="mb-3">Menu List</h5>
+      <h5>Menu List</h5>
 
       <div className="table-responsive">
         <table className="table table-striped table-bordered mt-2 w-100">
@@ -17,7 +17,7 @@ function MenuList({ items, onUpdate, onDelete }: MenuListProps) {
             <tr>
               <th>Name</th>
               <th>Category</th>
-              <th>Price (₱)</th>
+              <th>Price(₱)</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -25,7 +25,7 @@ function MenuList({ items, onUpdate, onDelete }: MenuListProps) {
           <tbody>
             {items.length === 0 ? (
               <tr>
-                <td colSpan={4} className="text-center text-muted py-3">
+                <td colSpan={4} className="text-center text-muted">
                   No items added yet.
                 </td>
               </tr>
@@ -36,27 +36,23 @@ function MenuList({ items, onUpdate, onDelete }: MenuListProps) {
                   <td>{item.category}</td>
                   <td>{item.price}</td>
                   <td>
-                  
-                    <button className="btn btn-warning btn-sm me-2">
+                    <button
+                      className="btn btn-warning btn-sm me-2"
+                      onClick={() => onUpdate(item)}
+                    >
                       Edit
                     </button>
 
-                   
-                    <button className="btn btn-danger btn-sm">
+                    <button
+                      className="btn btn-danger btn-sm"
+                      onClick={() => onDelete(item.id)}
+                    >
                       Delete
                     </button>
                   </td>
                 </tr>
               ))
             )}
-
-            <tr>
-              <td colSpan={4} className="text-center">
-                <button className="btn btn-primary btn-sm">
-                  + Add Menu Item
-                </button>
-              </td>
-            </tr>
           </tbody>
         </table>
       </div>
